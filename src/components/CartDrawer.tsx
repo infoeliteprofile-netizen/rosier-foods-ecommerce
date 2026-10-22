@@ -113,7 +113,10 @@ export default function CartDrawer() {
             ) : (
               items.map((item) => (
                 <div key={item.id} className="py-4 first:pt-0 flex gap-3.5">
-                  <div className="relative w-20 h-20 rounded-xl bg-stone-100 overflow-hidden flex-shrink-0 border border-stone-200">
+                  <div
+                    style={{ position: 'relative', width: '5rem', height: '5rem', flexShrink: 0 }}
+                    className="w-20 h-20 rounded-xl bg-stone-100 overflow-hidden border border-stone-200"
+                  >
                     <Image
                       src={item.image}
                       alt={item.name}

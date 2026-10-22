@@ -47,7 +47,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Product Image Area */}
-      <div className="relative aspect-square w-full bg-[#fbf9f5] overflow-hidden">
+      <div
+        style={{ position: 'relative', width: '100%', aspectRatio: '1/1' }}
+        className="aspect-square w-full bg-[#fbf9f5] dark:bg-[#121e18] overflow-hidden"
+      >
         {/* Top Badges */}
         <div className="absolute top-3 left-3 z-10 flex flex-col gap-1.5">
           {product.badge && (

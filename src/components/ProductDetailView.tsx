@@ -117,7 +117,10 @@ export default function ProductDetailView({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         {/* Left: Product Images Gallery */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="relative aspect-square w-full rounded-3xl bg-[#fbf9f5] border border-stone-200 overflow-hidden shadow-sm">
+          <div
+            style={{ position: 'relative', width: '100%', aspectRatio: '1/1' }}
+            className="aspect-square w-full rounded-3xl bg-[#fbf9f5] dark:bg-[#121e18] border border-stone-200 dark:border-stone-800 overflow-hidden shadow-sm"
+          >
             {product.badge && (
               <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-bold tracking-wider bg-[#1b4332] text-[#f7e6c4] shadow-md">
                 {product.badge}

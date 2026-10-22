@@ -38,15 +38,19 @@ export default function HomePage() {
               href={`/collections/${cat.slug}`}
               className="flex flex-col items-center group flex-shrink-0"
             >
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-50 p-1 border-2 border-amber-200/80 group-hover:border-[#1b4332] group-hover:scale-105 transition-all shadow-sm overflow-hidden">
+              <div
+                style={{ width: '4.5rem', height: '4.5rem', position: 'relative' }}
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-50 p-1 border-2 border-amber-200/80 group-hover:border-[#1b4332] group-hover:scale-105 transition-all shadow-sm overflow-hidden flex-shrink-0"
+              >
                 <Image
                   src={cat.image}
                   alt={cat.name}
                   fill
+                  sizes="80px"
                   className="object-cover rounded-full"
                 />
               </div>
-              <span className="text-[12px] sm:text-xs font-semibold text-stone-800 group-hover:text-[#1b4332] transition-colors mt-2 text-center max-w-[85px] sm:max-w-[100px] leading-tight">
+              <span className="text-[12px] sm:text-xs font-semibold text-stone-800 dark:text-stone-200 group-hover:text-[#1b4332] dark:group-hover:text-[#d4a373] transition-colors mt-2 text-center max-w-[85px] sm:max-w-[100px] leading-tight">
                 {cat.name}
               </span>
             </Link>
@@ -111,7 +115,10 @@ export default function HomePage() {
             {/* Featured Product Hero Preview */}
             <div className="lg:col-span-5 flex justify-center">
               <div className="relative w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 shadow-2xl">
-                <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-white/95 mb-4">
+                <div
+                  style={{ position: 'relative', width: '100%', aspectRatio: '1/1' }}
+                  className="aspect-square w-full rounded-xl overflow-hidden bg-white/95 mb-4"
+                >
                   <Image
                     src="https://www.rosierfoods.com/cdn/shop/files/rosier-foods-ghee-250-ml-gir-cow-a2-ghee-made-from-curd-1261568460.webp?v=1791458799&width=800"
                     alt="A2 Gir Cow Ghee"
