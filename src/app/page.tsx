@@ -28,128 +28,169 @@ export default function HomePage() {
   const newArrivals = PRODUCTS.filter((p) => p.isNewArrival);
 
   return (
-    <div className="space-y-16 lg:space-y-24 pb-20 overflow-hidden">
-      {/* 1. Category Quick Navigation Bubble Strip */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10">
-        <div className="flex items-center gap-4 sm:gap-8 overflow-x-auto pb-4 no-scrollbar justify-start sm:justify-center">
-          {CATEGORIES.map((cat) => (
+    <div className="space-y-12 lg:space-y-20 pb-20 overflow-hidden">
+      {/* 1. Main Official Hero Banner ("EVERY BATCH IS LAB TESTED") */}
+      <section className="w-full">
+        <Link href="/collections/all" className="block relative w-full overflow-hidden group">
+          <div className="relative w-full aspect-[2.6/1] sm:aspect-[3/1] max-h-[560px] bg-stone-100 dark:bg-stone-900">
+            {/* Desktop Banner */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://www.rosierfoods.com/cdn/shop/files/1_1658a322-943b-4593-a967-af22b89937a2.png?format=webp&v=1792159997&width=1600"
+              alt="Rosier Foods - Every Batch is Lab Tested"
+              className="hidden sm:block w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.01]"
+            />
+            {/* Mobile Banner */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://www.rosierfoods.com/cdn/shop/files/2_e43e382b-f10a-46d2-b253-3090037067a5.png?format=webp&v=1792160024&width=800"
+              alt="Rosier Foods - Every Batch is Lab Tested"
+              className="sm:hidden w-full h-full object-cover"
+            />
+          </div>
+        </Link>
+      </section>
+
+      {/* 2. Rosier Split Section: Featured Banners + Category Circular Icons */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          {/* Left: 2 Promotional Banners */}
+          <div className="lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
             <Link
-              key={cat.slug}
-              href={`/collections/${cat.slug}`}
-              className="flex flex-col items-center group flex-shrink-0"
+              href="/pages/hampers"
+              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-stone-200/80 bg-white"
             >
-              <div
-                style={{ width: '4.5rem', height: '4.5rem', position: 'relative' }}
-                className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-amber-50 p-1 border-2 border-amber-200/80 group-hover:border-[#1b4332] group-hover:scale-105 transition-all shadow-sm overflow-hidden flex-shrink-0"
-              >
-                <Image
-                  src={cat.image}
-                  alt={cat.name}
-                  fill
-                  sizes="80px"
-                  className="object-cover rounded-full"
-                />
-              </div>
-              <span className="text-[12px] sm:text-xs font-semibold text-stone-800 dark:text-stone-200 group-hover:text-[#1b4332] dark:group-hover:text-[#d4a373] transition-colors mt-2 text-center max-w-[85px] sm:max-w-[100px] leading-tight">
-                {cat.name}
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.rosierfoods.com/cdn/shop/files/diwali-hamper.png?v=1791490455&width=800"
+                alt="Festive Hampers"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
             </Link>
-          ))}
+            <Link
+              href="/collections/healthy-snacking"
+              className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-stone-200/80 bg-white"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.rosierfoods.com/cdn/shop/files/laddoo_mini-b.png?v=1791490469&width=800"
+                alt="Winter Gond Laddoo"
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </Link>
+          </div>
+
+          {/* Right: Category Circular Icons Grid / Slider */}
+          <div className="lg:col-span-7">
+            <div className="bg-[#fbf9f5] dark:bg-stone-900/60 rounded-3xl p-4 sm:p-6 border border-stone-200/80">
+              <div className="flex items-center justify-between mb-3 px-1">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#1b4332] dark:text-[#d4a373]">
+                  Explore Pure Superfoods
+                </span>
+                <Link
+                  href="/collections/all"
+                  className="text-xs font-semibold text-stone-600 dark:text-stone-400 hover:text-[#1b4332] flex items-center gap-1"
+                >
+                  View All →
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-3 sm:gap-4 text-center">
+                {[
+                  {
+                    name: 'A2 Ghee',
+                    slug: 'ghee',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/Ghee_Icons.png?v=1781252536&width=160',
+                  },
+                  {
+                    name: 'Stone Pressed Oils',
+                    slug: 'stone-press-oil',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/oils.webp?v=1779380714&width=160',
+                  },
+                  {
+                    name: 'Pickles',
+                    slug: 'pickles',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/pickles.webp?v=1779380696&width=160',
+                  },
+                  {
+                    name: 'Atta',
+                    slug: 'atta',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/atta.webp?v=1779380667&width=160',
+                  },
+                  {
+                    name: 'Snacking',
+                    slug: 'healthy-snacking',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/healthy_breakfast.webp?v=1779380735&width=160',
+                  },
+                  {
+                    name: 'Immunity',
+                    slug: 'immunity-boosters',
+                    img: 'https://www.rosierfoods.com/cdn/shop/files/immunity_bosters.webp?v=1779380753&width=160',
+                  },
+                ].map((item) => (
+                  <Link
+                    key={item.slug}
+                    href={`/collections/${item.slug}`}
+                    className="group flex flex-col items-center p-2 rounded-2xl hover:bg-white dark:hover:bg-stone-800 transition-all duration-200"
+                  >
+                    <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-white dark:bg-stone-800 p-2 border border-stone-200/80 group-hover:border-[#1b4332] group-hover:scale-105 transition-all shadow-sm flex items-center justify-center overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={item.img}
+                        alt={item.name}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
+                    <span className="text-[11px] sm:text-xs font-semibold text-stone-800 dark:text-stone-200 group-hover:text-[#1b4332] dark:group-hover:text-[#d4a373] mt-2 leading-tight">
+                      {item.name}
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* 2. Hero Split Showcase */}
+      {/* 3. Lab Tested Certificate Highlight Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-[#102a20] via-[#1b4332] to-[#255740] text-white shadow-2xl p-8 sm:p-14 lg:p-16 border border-[#2d5a45]">
-          {/* Subtle background decoration */}
-          <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 rounded-full bg-emerald-500/10 blur-3xl pointer-events-none" />
-
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2a5944] text-[#f7e6c4] text-xs font-semibold tracking-wider uppercase border border-[#3b7359]">
-                <Sparkles className="w-4 h-4 text-[#d4a373]" />
-                <span>100% Vedic Bilona • Zero Chemicals</span>
+        <div className="relative rounded-3xl overflow-hidden bg-[#f4ece1] dark:bg-stone-900 border border-amber-200/80 dark:border-stone-800 p-6 sm:p-10 lg:p-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1b4332] text-[#f7e6c4] text-xs font-bold uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                <span>NABL Accredited Laboratory Reports</span>
               </div>
-
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-[#f7e6c4] leading-[1.15]">
-                Pure, Traditional Foods Delivered Across India
-              </h1>
-
-              <p className="text-stone-300 text-sm sm:text-base lg:text-lg max-w-xl leading-relaxed">
-                Hand-churned A2 Gir Cow Ghee, stoneground unhybridized Khapli Atta, and cold-pressed Kolhu oils—crafted with ancient wisdom for modern vitality.
+              <h2 className="font-serif text-2xl sm:text-4xl font-bold text-[#1b4332] dark:text-[#f7e6c4] leading-tight">
+                Every Single Batch Is 100% Lab Tested
+              </h2>
+              <p className="text-stone-700 dark:text-stone-300 text-sm sm:text-base leading-relaxed">
+                We believe trust is earned through radical transparency. Every lot of Gir Cow A2 Ghee, Stone Pressed Oil, and Raw Honey undergoes rigorous testing for A2 Beta-Casein, heavy metals, adulterants, and purity index.
               </p>
-
-              <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-2">
+              <div className="pt-2 flex flex-wrap gap-3">
+                <Link
+                  href="/pages/lab-test-reports"
+                  className="px-6 py-3 rounded-xl bg-[#1b4332] text-[#f7e6c4] hover:bg-[#143427] font-bold text-xs uppercase tracking-widest transition-all shadow-md"
+                >
+                  View Lab Reports →
+                </Link>
                 <Link
                   href="/collections/all"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#d4a373] hover:bg-[#c39162] text-stone-950 font-bold text-xs sm:text-sm uppercase tracking-widest transition-all shadow-lg hover:shadow-xl text-center"
+                  className="px-6 py-3 rounded-xl bg-white/80 dark:bg-stone-800 text-stone-800 dark:text-stone-200 border border-stone-300 dark:border-stone-700 hover:bg-white font-semibold text-xs uppercase tracking-widest transition-all"
                 >
-                  Shop Pure Foods
+                  Shop Tested Batches
                 </Link>
-                <Link
-                  href="/pages/about-us"
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl bg-transparent hover:bg-white/10 text-[#f7e6c4] border border-[#f7e6c4]/40 font-semibold text-xs sm:text-sm uppercase tracking-widest transition-colors text-center"
-                >
-                  Our Heritage
-                </Link>
-              </div>
-
-              {/* Trust Badges Bar */}
-              <div className="grid grid-cols-3 gap-4 pt-6 border-t border-[#2d5a45]/80 text-left">
-                <div>
-                  <div className="text-lg sm:text-xl font-bold text-[#f7e6c4]">100%</div>
-                  <div className="text-[11px] sm:text-xs text-stone-300">Vedic Bilona Ghee</div>
-                </div>
-                <div>
-                  <div className="text-lg sm:text-xl font-bold text-[#f7e6c4]">45+</div>
-                  <div className="text-[11px] sm:text-xs text-stone-300">Heritage Farmers</div>
-                </div>
-                <div>
-                  <div className="text-lg sm:text-xl font-bold text-[#f7e6c4]">NABL</div>
-                  <div className="text-[11px] sm:text-xs text-stone-300">Lab Tested Batches</div>
-                </div>
               </div>
             </div>
 
-            {/* Featured Product Hero Preview */}
             <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-sm bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/20 shadow-2xl">
-                <div
-                  style={{ position: 'relative', width: '100%', aspectRatio: '1/1' }}
-                  className="aspect-square w-full rounded-xl overflow-hidden bg-white/95 mb-4"
-                >
-                  <Image
-                    src="https://www.rosierfoods.com/cdn/shop/files/rosier-foods-ghee-250-ml-gir-cow-a2-ghee-made-from-curd-1261568460.webp?v=1791458799&width=800"
-                    alt="A2 Gir Cow Ghee"
-                    fill
-                    className="object-cover"
-                    priority
-                  />
-                  <div className="absolute top-2 left-2 bg-[#1b4332] text-[#f7e6c4] text-[10px] font-bold px-2 py-0.5 rounded-full">
-                    🔥 Most Loved
-                  </div>
-                </div>
-                <div className="space-y-1">
-                  <span className="text-[10px] uppercase font-bold tracking-widest text-[#d4a373]">
-                    Gir Cow A2 Desi Ghee
-                  </span>
-                  <h3 className="font-semibold text-white text-base">
-                    Hand Churned Vedic Bilona Ghee
-                  </h3>
-                  <div className="flex items-center justify-between pt-2">
-                    <div>
-                      <span className="text-lg font-bold text-[#f7e6c4]">₹559.00</span>
-                      <span className="text-xs text-stone-400 line-through ml-2">₹699.00</span>
-                    </div>
-                    <Link
-                      href="/products/a2-desi-cow-ghee-hand-churned-from-curd"
-                      className="px-4 py-1.5 rounded-lg bg-[#d4a373] text-stone-950 font-bold text-xs uppercase hover:bg-amber-400 transition-colors"
-                    >
-                      View
-                    </Link>
-                  </div>
-                </div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-stone-200 dark:border-stone-700 bg-white max-w-md w-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://www.rosierfoods.com/cdn/shop/files/freepik-website.webp?v=1778905482&width=800"
+                  alt="Rosier Foods Lab Tested"
+                  className="w-full h-auto object-cover"
+                />
               </div>
             </div>
           </div>

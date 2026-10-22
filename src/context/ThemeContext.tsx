@@ -87,9 +87,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         } else {
           document.documentElement.classList.remove('dark');
         }
-      } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        setModeState('dark');
-        document.documentElement.classList.add('dark');
+      } else {
+        // Default strictly to 'light' to match Rosier Foods authentic warm ivory branding
+        setModeState('light');
+        document.documentElement.classList.remove('dark');
       }
 
       const savedPrimary = localStorage.getItem('rosier_primary_color');

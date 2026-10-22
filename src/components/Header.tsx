@@ -90,7 +90,7 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation Left */}
-            <nav className="hidden lg:flex items-center gap-8 text-[14px] font-medium text-stone-800 tracking-wide">
+            <nav className="hidden lg:flex items-center gap-7 text-[15px] font-medium text-stone-800 tracking-normal">
               <Link
                 href="/"
                 className={`transition-colors hover:text-[#1b4332] ${
@@ -108,41 +108,43 @@ export default function Header() {
               >
                 <Link
                   href="/collections/all"
-                  className={`flex items-center gap-1 transition-colors hover:text-[#1b4332] ${
+                  className={`flex items-center gap-1.5 transition-colors hover:text-[#1b4332] ${
                     pathname.startsWith('/collections') ? 'text-[#1b4332] font-semibold' : ''
                   }`}
                 >
                   <span>Shop</span>
-                  <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+                  <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 text-stone-500" />
                 </Link>
 
                 {/* Dropdown Menu */}
                 {isShopDropdownOpen && (
-                  <div className="absolute top-[72px] -left-12 w-[680px] bg-white rounded-xl shadow-2xl border border-stone-200 p-6 grid grid-cols-3 gap-4 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-[70px] left-0 w-[640px] bg-white rounded-2xl shadow-2xl border border-stone-200/90 p-5 grid grid-cols-2 gap-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150">
                     {CATEGORIES.map((cat) => (
                       <Link
                         key={cat.slug}
                         href={`/collections/${cat.slug}`}
-                        className="group/item p-3 rounded-lg hover:bg-[#fbf9f5] transition-colors border border-transparent hover:border-amber-200/60"
+                        className="group/item flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#fbf9f5] transition-colors border border-transparent hover:border-amber-200/70"
                       >
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xl">{cat.icon}</span>
-                          <span className="font-semibold text-stone-900 group-hover/item:text-[#1b4332] text-sm">
+                        <span className="text-2xl p-1.5 rounded-lg bg-amber-50 group-hover/item:bg-amber-100/80 transition-colors">
+                          {cat.icon}
+                        </span>
+                        <div>
+                          <div className="font-semibold text-stone-900 group-hover/item:text-[#1b4332] text-sm">
                             {cat.name}
-                          </span>
+                          </div>
+                          <p className="text-xs text-stone-500 line-clamp-1">
+                            {cat.tagline || cat.description}
+                          </p>
                         </div>
-                        <p className="text-xs text-stone-500 line-clamp-2 leading-relaxed">
-                          {cat.tagline || cat.description}
-                        </p>
                       </Link>
                     ))}
-                    <div className="col-span-3 pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-600">
-                      <span className="font-medium text-[#1b4332]">Pure & Traditional Indian Superfoods</span>
+                    <div className="col-span-2 pt-3 border-t border-stone-100 flex items-center justify-between text-xs text-stone-600 px-1">
+                      <span className="font-medium text-[#1b4332]">100% Pure &amp; Traditional Superfoods</span>
                       <Link
                         href="/collections/all"
-                        className="font-semibold text-[#1b4332] hover:underline flex items-center gap-1"
+                        className="font-bold text-[#1b4332] hover:underline flex items-center gap-1"
                       >
-                        View All Products →
+                        View All Collections →
                       </Link>
                     </div>
                   </div>
@@ -160,12 +162,11 @@ export default function Header() {
 
               <Link
                 href="/pages/lab-test-reports"
-                className={`transition-colors hover:text-[#1b4332] flex items-center gap-1 ${
+                className={`transition-colors hover:text-[#1b4332] ${
                   pathname === '/pages/lab-test-reports' ? 'text-[#1b4332] font-semibold' : ''
                 }`}
               >
-                <FileText className="w-3.5 h-3.5 text-emerald-700" />
-                <span>Lab Reports</span>
+                Lab Reports
               </Link>
 
               <Link
@@ -176,36 +177,64 @@ export default function Header() {
               >
                 Hampers
               </Link>
-
-              <Link
-                href="/pages/contact"
-                className={`transition-colors hover:text-[#1b4332] ${
-                  pathname === '/pages/contact' ? 'text-[#1b4332] font-semibold' : ''
-                }`}
-              >
-                Contact Us
-              </Link>
             </nav>
 
             {/* Rosier Foods Center Logo */}
-            <div className="flex-1 lg:flex-initial text-center lg:text-left">
-              <Link href="/" className="inline-flex flex-col items-center">
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-[#1b4332] flex items-center justify-center text-[#f7e6c4] shadow-sm">
-                    <span className="font-serif text-xl font-bold tracking-tighter">R</span>
+            <div className="flex-1 lg:flex-initial flex items-center justify-center">
+              <Link href="/" className="inline-flex items-center">
+                {/* Real Rosier Logo with SVG fallback */}
+                <div className="relative w-36 sm:w-44 h-12 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://www.rosierfoods.com/cdn/shop/files/black-logo-01_7f1cd910-121f-49c7-bdcf-248849cd14f5.webp?v=1789128976&width=300"
+                    alt="Rosier Foods - Nature's Love"
+                    className="max-h-12 w-auto object-contain"
+                    onError={(e) => {
+                      // Fallback text if network blocks external asset
+                      (e.target as HTMLElement).style.display = 'none';
+                      const fallback = document.getElementById('logo-fallback-text');
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+                  <div
+                    id="logo-fallback-text"
+                    style={{ display: 'none' }}
+                    className="flex-col items-center"
+                  >
+                    <span className="font-serif text-xl sm:text-2xl font-bold tracking-[0.2em] text-[#1b4332] uppercase">
+                      ROSIER
+                    </span>
+                    <span className="text-[9px] tracking-[0.25em] text-[#8c6b45] uppercase font-semibold">
+                      Nature&apos;s Love
+                    </span>
                   </div>
-                  <span className="font-serif text-2xl font-bold tracking-[0.2em] text-[#1b4332] uppercase">
-                    ROSIER
-                  </span>
                 </div>
-                <span className="text-[9px] tracking-[0.35em] text-[#d4a373] uppercase font-bold -mt-1">
-                  FOODS OF INDIA
-                </span>
               </Link>
             </div>
 
             {/* Header Right Actions */}
-            <div className="flex items-center gap-2 sm:gap-3">
+            <div className="flex items-center gap-3 sm:gap-4">
+              {/* Desktop Inline Search Bar matching Rosier official website */}
+              <div
+                onClick={() => setIsSearchOpen(true)}
+                className="hidden xl:flex items-center justify-between w-52 sm:w-64 px-3.5 py-1.5 rounded-full bg-white/90 border border-stone-300 text-xs text-stone-500 hover:border-[#1b4332] transition-colors cursor-pointer shadow-sm group"
+              >
+                <span className="text-stone-400 group-hover:text-stone-600 select-none">
+                  Search products
+                </span>
+                <Search className="w-4 h-4 text-stone-500 group-hover:text-[#1b4332] transition-colors" />
+              </div>
+
+              {/* Mobile / Tablet Search Icon */}
+              <button
+                type="button"
+                onClick={() => setIsSearchOpen(true)}
+                className="xl:hidden p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60"
+                aria-label="Search products"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+
               {/* Dark/Light Mode Toggle */}
               <button
                 type="button"
@@ -214,41 +243,33 @@ export default function Header() {
                 aria-label="Toggle theme mode"
                 title={`Switch to ${mode === 'light' ? 'Dark' : 'Light'} Mode`}
               >
-                {mode === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5 text-amber-400" />}
-              </button>
-
-              {/* Search Icon Trigger */}
-              <button
-                type="button"
-                onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
-                aria-label="Search products"
-              >
-                <Search className="w-5 h-5" />
+                {mode === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4 text-amber-400" />}
               </button>
 
               {/* User Account */}
               <Link
                 href="/account"
-                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
+                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60"
                 aria-label="Account"
               >
                 <User className="w-5 h-5" />
               </Link>
 
-              {/* Cart Drawer Trigger */}
+              {/* Cart Drawer Trigger with Red Badge */}
               <button
                 type="button"
                 onClick={openCart}
-                className="relative p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
+                className="relative p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60"
                 aria-label="View shopping bag"
               >
                 <ShoppingBag className="w-5 h-5" />
-                {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#1b4332] text-[#f7e6c4] text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-stone-900 shadow-sm">
-                    {itemCount}
-                  </span>
-                )}
+                <span
+                  className={`absolute -top-1 -right-1 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm transition-all ${
+                    itemCount > 0 ? 'bg-[#c52b2b]' : 'bg-[#c52b2b]/80'
+                  }`}
+                >
+                  {itemCount}
+                </span>
               </button>
             </div>
           </div>
