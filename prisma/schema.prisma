@@ -1,0 +1,132 @@
+// Prisma schema for Rosier Foods e-commerce store
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String?
+  image       String?
+  products    Product[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Product {
+  id             String           @id @default(cuid())
+  slug           String           @unique
+  name           String
+  tagline        String?
+  description    String
+  price          Float
+  compareAtPrice Float?
+  discountBadge  String?          // e.g. "20% OFF", "BEST SELLER"
+  rating         Float            @default(4.9)
+  reviewCount    Int              @default(150)
+  badge          String?          // e.g. "🔥 Best Seller", "⚡ Selling Fast", "🎉 New Arrival", "🚀 Trending"
+  categorySlug   String
+  category       Category         @relation(fields: [categorySlug], references: [slug])
+  inStock        Boolean          @default(true)
+  featured       Boolean          @default(false)
+  isNewArrival   Boolean          @default(false)
+  details        String?          @db.Text
+  benefits       String?          @db.Text
+  ingredients    String?          @db.Text
+  howItsMade     String?          @db.Text
+  labTestReport  String?
+  images         ProductImage[]
+  variants       ProductVariant[]
+  reviews        Review[]
+  orderItems     OrderItem[]
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+}
+
+model ProductImage {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String?
+  order     Int      @default(0)
+}
+
+model ProductVariant {
+  id             String   @id @default(cuid())
+  productId      String
+  product        Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  title          String   // e.g. "500 ML", "1 Ltr", "2 Ltr (Glass Jars)"
+  price          Float
+  compareAtPrice Float?
+  stock          Int      @default(100)
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  orderNumber    String      @unique
+  customerName   String
+  email          String
+  phone          String
+  address        String
+  city           String
+  state          String
+  postalCode     String
+  country        String      @default("India")
+  totalAmount    Float
+  discountAmount Float       @default(0)
+  discountCode   String?
+  status         String      @default("PROCESSING") // PENDING, PROCESSING, SHIPPED, DELIVERED, CANCELLED
+  paymentMethod  String      @default("COD") // COD, CARD, UPI, NETBANKING
+  paymentStatus  String      @default("PENDING") // PENDING, PAID, FAILED
+  items          OrderItem[]
+  createdAt      DateTime    @default(now())
+  updatedAt      DateTime    @updatedAt
+}
+
+model OrderItem {
+  id           String   @id @default(cuid())
+  orderId      String
+  order        Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  productId    String?
+  product      Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName  String
+  variantTitle String?
+  price        Float
+  quantity     Int
+  imageUrl     String?
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  author    String
+  rating    Int      @default(5)
+  title     String?
+  comment   String   @db.Text
+  verified  Boolean  @default(true)
+  createdAt DateTime @default(now())
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
