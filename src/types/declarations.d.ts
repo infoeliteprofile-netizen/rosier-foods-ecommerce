@@ -58,4 +58,12 @@ declare module 'lucide-react' {
   export const Package: LucideIcon;
   export const LogOut: LucideIcon;
   export const Download: LucideIcon;
+  export const Sun: LucideIcon;
+  export const Moon: LucideIcon;
+  export const Palette: LucideIcon;
+  export const Settings: LucideIcon;
+  export const Layers: LucideIcon;
+  export const Edit: LucideIcon;
+  export const Save: LucideIcon;
+  export const RefreshCw: LucideIcon;
 }

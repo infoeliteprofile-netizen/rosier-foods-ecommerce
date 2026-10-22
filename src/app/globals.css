@@ -3,12 +3,53 @@
 :root {
   --background: #fdfbf7;
   --foreground: #1c1917;
+  --card: #ffffff;
+  --card-border: #e7e5e4;
+  --brand-primary: #1b4332;
+  --brand-primary-hover: #143225;
+  --brand-accent: #d4a373;
+}
+
+html.dark {
+  --background: #0f1914;
+  --foreground: #f5f5f4;
+  --card: #15221b;
+  --card-border: #24382e;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* Dark mode overrides for common components */
+html.dark .bg-white {
+  background-color: #17261e !important;
+  color: #f5f5f4;
+}
+
+html.dark .bg-\[\#fbf9f5\],
+html.dark .bg-\[\#f4ece1\],
+html.dark .bg-stone-50 {
+  background-color: #121e18 !important;
+}
+
+html.dark .border-stone-200,
+html.dark .border-stone-300,
+html.dark .border-stone-100 {
+  border-color: #263b30 !important;
+}
+
+html.dark .text-stone-900,
+html.dark .text-stone-800 {
+  color: #f5f5f4 !important;
+}
+
+html.dark .text-stone-600,
+html.dark .text-stone-500 {
+  color: #a8a29e !important;
 }
 
 /* Hide scrollbar for category strip */

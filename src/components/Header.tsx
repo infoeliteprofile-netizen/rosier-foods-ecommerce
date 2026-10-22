@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCart } from '@/context/CartContext';
+import { useTheme } from '@/context/ThemeContext';
 import { CATEGORIES } from '@/data/rosier-data';
 import {
   ShoppingBag,
@@ -15,13 +16,17 @@ import {
   Sparkles,
   ShieldCheck,
   HeartHandshake,
-  FileText
+  FileText,
+  Sun,
+  Moon,
+  Settings
 } from 'lucide-react';
 import SearchModal from './SearchModal';
 
 export default function Header() {
   const pathname = usePathname();
   const { itemCount, openCart } = useCart();
+  const { mode, toggleMode } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -200,21 +205,42 @@ export default function Header() {
             </div>
 
             {/* Header Right Actions */}
-            <div className="flex items-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3">
+              {/* Dark/Light Mode Toggle */}
+              <button
+                type="button"
+                onClick={toggleMode}
+                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 dark:hover:text-[#d4a373] transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
+                aria-label="Toggle theme mode"
+                title={`Switch to ${mode === 'light' ? 'Dark' : 'Light'} Mode`}
+              >
+                {mode === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5 text-amber-400" />}
+              </button>
+
               {/* Search Icon Trigger */}
               <button
                 type="button"
                 onClick={() => setIsSearchOpen(true)}
-                className="p-2 text-stone-700 hover:text-[#1b4332] transition-colors rounded-full hover:bg-stone-100"
+                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
                 aria-label="Search products"
               >
                 <Search className="w-5 h-5" />
               </button>
 
+              {/* Admin Panel Quick Link */}
+              <Link
+                href="/admin"
+                className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1b4332]/10 dark:bg-emerald-950/60 hover:bg-[#1b4332] text-[#1b4332] hover:text-[#f7e6c4] text-xs font-bold transition-all border border-[#1b4332]/20"
+                title="Admin Control Panel"
+              >
+                <Settings className="w-3.5 h-3.5" />
+                <span>Admin</span>
+              </Link>
+
               {/* User Account */}
               <Link
                 href="/account"
-                className="p-2 text-stone-700 hover:text-[#1b4332] transition-colors rounded-full hover:bg-stone-100"
+                className="p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
                 aria-label="Account"
               >
                 <User className="w-5 h-5" />
@@ -224,12 +250,12 @@ export default function Header() {
               <button
                 type="button"
                 onClick={openCart}
-                className="relative p-2 text-stone-700 hover:text-[#1b4332] transition-colors rounded-full hover:bg-stone-100"
+                className="relative p-2 text-stone-700 hover:text-[#1b4332] dark:text-stone-300 transition-colors rounded-full hover:bg-stone-200/60 dark:hover:bg-stone-800"
                 aria-label="View shopping bag"
               >
                 <ShoppingBag className="w-5 h-5" />
                 {itemCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-[#1b4332] text-[#f7e6c4] text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow-sm">
+                  <span className="absolute -top-1 -right-1 bg-[#1b4332] text-[#f7e6c4] text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white dark:border-stone-900 shadow-sm">
                     {itemCount}
                   </span>
                 )}
