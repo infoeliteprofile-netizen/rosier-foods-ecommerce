@@ -227,16 +227,6 @@ export default function Header() {
                 <Search className="w-5 h-5" />
               </button>
 
-              {/* Admin Panel Quick Link */}
-              <Link
-                href="/admin"
-                className="hidden sm:flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1b4332]/10 dark:bg-emerald-950/60 hover:bg-[#1b4332] text-[#1b4332] hover:text-[#f7e6c4] text-xs font-bold transition-all border border-[#1b4332]/20"
-                title="Admin Control Panel"
-              >
-                <Settings className="w-3.5 h-3.5" />
-                <span>Admin</span>
-              </Link>
-
               {/* User Account */}
               <Link
                 href="/account"
