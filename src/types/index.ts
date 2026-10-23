@@ -49,6 +49,7 @@ export interface ProductItem {
 }
 
 export interface CategoryItem {
+  id?: string;
   slug: string;
   name: string;
   tagline?: string;

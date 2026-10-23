@@ -53,6 +53,75 @@ export const DEFAULT_SITE_SETTINGS = {
     address: 'Sector 48, Sohna Road, Gurugram, Haryana - 122018, India',
     supportHours: 'Monday - Saturday, 9:00 AM - 7:00 PM IST',
   },
+  promoPopup: {
+    enabled: true,
+    title: 'Pure Vedic Harvest Offer! 🌾',
+    subtitle: 'Get 10% OFF on Certified A2 Bilona Ghee, Raw Honey & Stoneground Atta',
+    couponCode: 'ROSIER10',
+    imageUrl: 'https://www.rosierfoods.com/cdn/shop/files/diwali-hamper.png?v=1791490455&width=800',
+    buttonText: 'Claim 10% OFF & Shop Now',
+    targetUrl: '/collections/all',
+    delaySeconds: 4,
+    frequency: 'once_per_session',
+  },
+  paymentGateways: {
+    razorpay: {
+      enabled: true,
+      mode: 'live',
+      keyId: 'rzp_live_rosierfoods123',
+      keySecret: '••••••••••••••••',
+      merchantName: 'Rosier Foods Private Limited',
+    },
+    cod: {
+      enabled: true,
+      extraFee: 0,
+      minOrder: 0,
+      maxOrder: 10000,
+      instructions: 'Pay cash or UPI directly to the courier agent upon doorstep delivery.',
+    },
+    upi: {
+      enabled: true,
+      upiId: 'rosierfoods@okaxis',
+      merchantName: 'Rosier Foods Pure Vedic',
+      qrImageUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=rosierfoods@okaxis&pn=RosierFoods',
+      instructions: 'Scan with Google Pay, PhonePe, Paytm, or BHIM. Zero payment fees.',
+    },
+    stripe: {
+      enabled: false,
+      publishableKey: '',
+      secretKey: '',
+    },
+  },
+  pages: {
+    about: {
+      pageTitle: 'Our Heritage & Soil-To-Soul Journey',
+      subtitle: 'Preserving India’s Ancient Bilona Churning & Unhybridized Heirloom Crops',
+      storyParagraph1: 'Founded on the sacred reverence for Indian indigenous cows and native seeds, Rosier Foods was born out of an urgent need to escape adulterated, ultra-processed supermarket staples.',
+      storyParagraph2: 'We partner directly with multigenerational farming families across Rajasthan, Haryana, and Gujarat. No middlemen, no chemical preservatives, no deodorized oils.',
+      heritagePledge: 'Every batch is tracked from the cow’s grass diet to the glass jar delivered to your home.',
+    },
+    labReports: {
+      headline: 'LAB REPORTS FOR ALL THE PRODUCTS',
+      subtitle: 'Complete NABL & FSSAI analytical transparency for every single batch produced.',
+      disclaimer: 'Third-party testing conducted by accredited NABL laboratories for A2 Beta-Casein DNA purity, NMR spectrum, and zero heavy metal contamination.',
+    },
+    hampers: {
+      headline: 'Festive & Wellness Gift Hampers',
+      subtitle: 'Thoughtfully packaged Vedic wellness boxes for Diwali, weddings, and corporate celebrations.',
+      customOrdersNotice: 'Need custom branding or corporate bulk hampers? Contact our gifting concierge directly on WhatsApp.',
+    },
+    contact: {
+      headline: 'Connect With The Rosier Family',
+      address: 'Rosier Foods, Sector 48, Gurugram, Haryana - 122018, India',
+      phone: '+91 99999 87654',
+      email: 'care@rosierfoods.com',
+      hours: 'Mon-Sat: 9:00 AM - 7:00 PM IST',
+    },
+    policies: {
+      shippingNotice: 'Free shipping on orders above ₹499. Dispatched within 24 hours via express courier with real-time tracking.',
+      refundNotice: 'Hassle-free 7-day replacement guarantee if goods arrive damaged or unsealed. WhatsApp support responds within 1 hour.',
+    },
+  },
 };
 
 export async function GET() {

@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import PromoModal from '@/components/PromoModal';
 
 export default function StoreShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -24,6 +25,7 @@ export default function StoreShell({ children }: { children: React.ReactNode }) 
       <Footer />
       <CartDrawer />
       <WhatsAppButton />
+      <PromoModal />
     </>
   );
 }
