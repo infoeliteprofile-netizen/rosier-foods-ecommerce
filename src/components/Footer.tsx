@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Mail, Phone, MapPin, CheckCircle2, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle2, ShieldCheck, ChevronUp } from 'lucide-react';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -15,8 +15,23 @@ export default function Footer() {
     setEmail('');
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
-    <footer className="bg-[#102a20] text-stone-200 border-t border-[#1b4332] pt-16 pb-12">
+    <footer className="relative bg-[#102a20] text-stone-200 pt-10 pb-12">
+      {/* Decorative Wave Transition (Dune Curve matching Rosier website) */}
+      <div className="absolute top-0 left-0 right-0 -translate-y-full overflow-hidden leading-none pointer-events-none select-none">
+        <svg
+          className="relative block w-full h-8 sm:h-12 text-[#102a20] fill-current"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,0 C150,85 350,-20 500,45 C650,110 850,20 1200,60 L1200,120 L0,120 Z" />
+        </svg>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Newsletter & Brand Promise Banner */}
         <div className="bg-[#1b4332] rounded-3xl p-8 sm:p-12 mb-16 shadow-xl border border-[#2d5a45] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -250,6 +265,16 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Floating Scroll To Top Button (matching screenshot) */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        className="fixed bottom-24 right-6 z-30 w-10 h-10 rounded-full bg-[#8c6b45] hover:bg-[#a67c52] text-white shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none"
+        aria-label="Scroll to top"
+      >
+        <ChevronUp className="w-5 h-5" />
+      </button>
     </footer>
   );
 }

@@ -769,3 +769,205 @@ export const LAB_REPORTS = [
     summary: "NMR profiling verifies natural multi-flora enzymatic fingerprints."
   }
 ];
+
+export interface LabReportProduct {
+  id: string;
+  title: string;
+  imgSrc: string;
+  pdfLink: string;
+}
+
+export const LAB_REPORT_PRODUCTS: LabReportProduct[] = [
+  {
+    "id": "lab-p-0",
+    "title": "Malai Paneer",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_15d7925a-a20b-461b-98f4-5db38f3c21f5.jpg?format=webp&v=1769611004&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Paneer_-112.pdf?v=1753244027"
+  },
+  {
+    "id": "lab-p-1",
+    "title": "Gir Cow A2 Ghee",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-ghee-1-ltr-gir-cow-a2-ghee-made-from-curd-1218401163.jpg?format=webp&v=1769608450&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/merged.pdf?v=1768202574"
+  },
+  {
+    "id": "lab-p-2",
+    "title": "Better Bars",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_016ae094-e9ff-45c5-8ff3-0cdcd6513597.jpg?format=webp&v=1758710517&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Rosier_foods_Protein_Bar.pdf?v=1749046679"
+  },
+  {
+    "id": "lab-p-3",
+    "title": "Khapli Atta",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-flour-5-kg-khapli-emmer-wheat-atta-1218401183.jpg?format=webp&v=1769607789&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Khapli_Atta_Lab_Report.pdf?v=1765368662"
+  },
+  {
+    "id": "lab-p-4",
+    "title": "Wild Forest Honey",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_af2cbd16-c3e7-4eb8-9a7f-492acb60f937.jpg?format=webp&v=1756989923&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Wild_Forest_Honey.pdf?v=1765369651"
+  },
+  {
+    "id": "lab-p-5",
+    "title": "Ginger Honey",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_d9a20c6e-35e4-4f38-bf06-92cb2525589f.jpg?format=webp&v=1768206824&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Ginger_Honey_-174.pdf?v=1765641667"
+  },
+  {
+    "id": "lab-p-6",
+    "title": "Stone Pressed Mustard Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_8ebce744-37d0-4fdb-b001-f8bfa2655d89.jpg?format=webp&v=1768206855&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Black_Mustard_Oil_Lab_Report.pdf?v=1765370195"
+  },
+  {
+    "id": "lab-p-7",
+    "title": "Stone Pressed Groundnut Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_c3fefb11-eeb0-4ffa-a805-f565e01e5bba.jpg?format=webp&v=1768206883&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Groundnut_Oil_Lab_Report.pdf?v=1765370419"
+  },
+  {
+    "id": "lab-p-8",
+    "title": "Stone Pressed Coconut Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_8126ed29-07d9-49c7-b0c0-32d19d67c9f7.jpg?format=webp&v=1768206916&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Coconut_Oil_Lab_Report.pdf?v=1765370726"
+  },
+  {
+    "id": "lab-p-9",
+    "title": "Stone Pressed Yellow Mustard Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_8b5d3091-1b71-4ecc-816d-38695e732eb6.jpg?format=webp&v=1768206946&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Yellow_Mustard_Oil_Lab_Report.pdf?v=1765371322"
+  },
+  {
+    "id": "lab-p-10",
+    "title": "Stone Pressed Sunflower Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/1_b409400f-9c02-4287-9211-d7431fe2e957.jpg?format=webp&v=1768206975&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Sunflower_Oil-020.pdf?v=1765371422"
+  },
+  {
+    "id": "lab-p-11",
+    "title": "Stone Pressed Olive Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-oil-500-ml-stone-pressed-olive-oil-1238550345.jpg?format=webp&v=1778873051&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Olive_Oil-023.pdf?v=1788259531"
+  },
+  {
+    "id": "lab-p-12",
+    "title": "Stone Pressed Sesame Oil",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-oil-1000-ml-pet-bottle-stone-pressed-sesame-oil-1238581627.jpg?format=webp&v=1778923451&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/ROSIER_WHITE_SESAME20251001_15433420.pdf?v=1788259530"
+  },
+  {
+    "id": "lab-p-13",
+    "title": "Amlaprash",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/Amlaprash_Front.jpg?format=webp&v=1759503392&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Amlaprash_Lab_Report.pdf?v=1765543072"
+  },
+  {
+    "id": "lab-p-14",
+    "title": "Nut Butter Dark Chocolate",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-300g-nut-butter-dark-chocolate-1218411524.jpg?format=webp&v=1769614597&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/merged.pdf?v=1768202574"
+  },
+  {
+    "id": "lab-p-15",
+    "title": "Nut Butter",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-300g-nut-butter-1218411515.jpg?format=webp&v=1769614690&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/merged.pdf?v=1768202574"
+  },
+  {
+    "id": "lab-p-16",
+    "title": "Almond Butter Crunchy",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-300g-almond-butter-crunchy-1218411519.jpg?format=webp&v=1769614511&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/merged.pdf?v=1768202574"
+  },
+  {
+    "id": "lab-p-17",
+    "title": "Nut Butter Crunchy",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-300g-nut-butter-crunchy-1218411521.jpg?format=webp&v=1769614465&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/merged.pdf?v=1768202574"
+  },
+  {
+    "id": "lab-p-18",
+    "title": "Sattu Flour",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-flour-1-kg-sattu-atta-1kg-1231505540.jpg?format=webp&v=1775647658&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Test_report_of_Sattu_-_206.pdf?v=1776080054"
+  },
+  {
+    "id": "lab-p-19",
+    "title": "Multigrain Flour",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-flour-5-kg-multigrain-atta-5kg-1231498774.jpg?format=webp&v=1775641334&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/200-Multigrain_flour_Atta.pdf?v=1776080054"
+  },
+  {
+    "id": "lab-p-20",
+    "title": "Jowar Flour",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-flour-1-kg-jowar-atta-1kg-1231498773.jpg?format=webp&v=1775641029&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Test_report_of_Jowar_Flour-202.pdf?v=1776080054"
+  },
+  {
+    "id": "lab-p-21",
+    "title": "Ragi Flour",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-flour-1-kg-ragi-atta-1kg-1231498772.jpg?format=webp&v=1775640637&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Test_report_of_Ragi_Flour-201.pdf?v=1776080054"
+  },
+  {
+    "id": "lab-p-22",
+    "title": "Banana Cinnamon Oats",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-pack-of-1-x-6-overnight-oats-banana-cinnamon-1231505533.jpg?format=webp&v=1775647778&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/fa20260212-027-114.pdf?v=1776513445"
+  },
+  {
+    "id": "lab-p-23",
+    "title": "Cafe Mocha Oats",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-pack-of-1-x-6-overnight-oats-cafe-mocha-1231505529.jpg?format=webp&v=1775647810&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/fa20260212-027-115.pdf?v=1776513627"
+  },
+  {
+    "id": "lab-p-24",
+    "title": "Double Chocolate Oats",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-bars-nutbutters-pack-of-1-x-6-overnight-oats-double-chocolate-1231505531.jpg?format=webp&v=1775647691&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/fa20260212-027-116.pdf?v=1776513712"
+  },
+  {
+    "id": "lab-p-25",
+    "title": "Mango Oats",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-oats-pack-of-1-x-6-high-protein-oats-mango-tango-1248483154.jpg?format=webp&v=1783696838&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/High_Protein_Oats_-_Mango_-033.pdf?v=1788249684"
+  },
+  {
+    "id": "lab-p-26",
+    "title": "Kulfi Oats",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-oats-pack-of-1-x-6-high-protein-oats-kulfi-masti-1248483153.jpg?format=webp&v=1783696812&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Overnight_Oats_Kulfi_-079.pdf?v=1788249685"
+  },
+  {
+    "id": "lab-p-27",
+    "title": "Red Chilli Pickle",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-pickle-300-gms-red-chilly-pickle-natural-sun-dried-1239710632.jpg?format=webp&v=1779377051&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Red_Chilli_pickle.pdf?v=1788249685"
+  },
+  {
+    "id": "lab-p-28",
+    "title": "Mango Pickle",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-pickle-300-gms-mango-pickle-natural-sun-dried-1239710636.jpg?format=webp&v=1779377171&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Mango_pickle.pdf?v=1788250646"
+  },
+  {
+    "id": "lab-p-29",
+    "title": "Sweet Lemon Pickle",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-pickle-300-gms-sweet-lemon-pickle-natural-sun-dried-1239710634.jpg?format=webp&v=1779377111&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/Sweet_lemon_Pickle.pdf?v=1788249685"
+  },
+  {
+    "id": "lab-p-30",
+    "title": "Green Chilly Pickle",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-pickle-300-gms-green-chilly-pickle-natural-sun-dried-1239710633.jpg?format=webp&v=1779377079&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/green_chilli_pickle.pdf?v=1788259532"
+  },
+  {
+    "id": "lab-p-31",
+    "title": "Lemon Pickle",
+    "imgSrc": "https://www.rosierfoods.com/cdn/shop/files/rosier-foods-pickle-300-gms-lemon-pickle-natural-sun-dried-1239710635.jpg?format=webp&v=1779377138&width=360",
+    "pdfLink": "https://cdn.shopify.com/s/files/1/0653/2605/5654/files/204-Nimbu_Masala_Pickle.pdf?v=1788266555"
+  }
+];
